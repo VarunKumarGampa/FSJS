@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>sameple</title>
+
+    <style>
+      .open {
+        position: absolute;
+
+        width: 20px;
+
+        height: 20px;
+
+        border-radius: 50%;
+
+        background-color: white;
+      }
+
+      body {
+        height: 100vh;
+
+        width: 100%;
+
+        background-color: black;
+
+        margin: 0px;
+
+        padding: 0px;
+
+        box-sizing: border-box;
+      }
+    </style>
+
+    <!-- //<link rel="stylesheet" href="styles.css"> -->
+  </head>
+
+  <body>
+    <script>
+      const body = document.querySelector("body");
+
+      body.addEventListener("click", function myfuntion(event) {
+        let element = document.createElement("div");
+
+        element.classList.add("open");
+
+        console.log(element);
+
+        let hex = "0123456789ABCDEF";
+
+        let x = "#";
+
+        let str = "";
+
+        for (let i = 0; i <= 5; i++) {
+          str = str + hex[Math.floor(Math.random() * 16)];
+        }
+
+        str = x + str;
+
+        element.style.backgroundColor = str;
+
+        element.style.top = event.clientY + "px";
+
+        element.style.left = event.clientX + "px";
+
+        console.log(event.clientY);
+
+        body.appendChild(element);
+
+        setTimeout(clearcircle, 2000);
+      });
+
+      function clearcircle() {
+        document.querySelector("div").remove("open");
+      }
+    </script>
+  </body>
+</html>
